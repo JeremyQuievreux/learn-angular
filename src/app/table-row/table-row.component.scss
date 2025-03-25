@@ -1,0 +1,65 @@
+@import "src/styles.scss";
+
+.table-row {
+  border: 2px solid $tertary-color;
+  display: flex;
+  justify-content: space-around;
+  margin: 5px 0;
+  padding: 5px;
+  color: $text-color;
+
+  &:hover {
+    border-color: white;
+    background-color: white;
+    color: $secondary-color;
+  }
+}
+
+.table-row__item{
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+
+.id-cell {
+  width: 5%;
+}
+
+.name-cell {
+  width: 15%;
+}
+
+.firstname-cell {
+  width: 15%;
+}
+
+.team-cell {
+  width: 30%;
+}
+
+.champion-cell {
+  width: 15%;
+}
+
+.action-cell {
+  width: 15%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.btn {
+  background-color: $tertary-color;
+  border-radius: 5px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45%;
+
+  &:hover {
+    background-color: $secondary-color;
+    color: $text-color;
+    cursor: pointer;
+  }
+}

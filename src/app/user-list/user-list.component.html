@@ -1,0 +1,15 @@
+<div class="userList-container">
+  <div class="users-container">
+    <div class="table-header">
+      <div class="table-header__item id-cell">N°</div>
+      <div class="table-header__item name-cell">Name</div>
+      <div class="table-header__item firstname-cell">Firstname</div>
+      <div class="table-header__item team-cell">Team</div>
+      <div class="table-header__item champion-cell">World champion</div>
+      <div class="table-header__item action-cell">Actions</div>
+    </div>
+    <div class="table-body">
+      <table-row *ngFor="let user of users" [user]="user" (edit)="goToUserDetail($event)"/>
+    </div>
+  </div>
+</div>

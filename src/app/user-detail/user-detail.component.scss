@@ -1,0 +1,62 @@
+@import "src/styles.scss";
+
+.user-detail-container {
+  display: flex;
+  justify-content: center;
+
+  .user-detail-card {
+    border: 5px solid $primary-color;
+    border-radius: 10px;
+    width: 50%;
+    height: 300px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    .user-card-body {
+      display: flex;
+      flex-grow: 1;
+      color: $primary-color;
+      background-color: $text-color;
+      border-radius: 5px 5px 0 0;
+      .left-block{
+        width: 75%;
+        padding-left: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+      }
+      .right-block {
+        width: 25%;
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img{
+          width: 100%;
+        }
+      }
+    }
+    .user-card-footer {
+      display: flex;
+      justify-content: space-around;
+      padding: 5px;
+      background-color: $primary-color;
+      .btn {
+        background-color: $tertary-color;
+        border-radius: 5px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100px;
+
+        &:hover {
+          background-color: $secondary-color;
+          color: $text-color;
+          cursor: pointer;
+        }
+      }
+    }
+
+  }
+}

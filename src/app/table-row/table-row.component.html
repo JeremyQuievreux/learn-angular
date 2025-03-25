@@ -1,0 +1,20 @@
+<div class="table-row">
+  <div class="table-row__item id-cell">
+    <p>{{ user.id }}</p>
+  </div>
+  <div class="table-row__item name-cell">
+    <p>{{ user.name }}</p>
+  </div>
+  <div class="table-row__item firstname-cell">
+    <p>{{ user.firstname }}</p>
+  </div>
+  <div class="table-row__item team-cell">
+    <p>{{ user.team }}</p>
+  </div>
+  <div class="table-row__item champion-cell">
+    <p>{{ user.isAdmin ? "OUI" : "NON"}}</p>
+  </div>
+  <div class="table-row__item action-cell">
+    <div class="btn btn--detail" (click)="goToUserDetail()" >Detail</div>
+  </div>
+</div>

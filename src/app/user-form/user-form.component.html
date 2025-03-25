@@ -1,0 +1,36 @@
+<div class="user-form-container">
+  <h2 class="form-title">{{ userId ? 'Modifier un utilisateur' : 'Créer un utilisateur' }}</h2>
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div class="form-item">
+      <label for="id">Pilot number :</label>
+      <input type="number" formControlName="id" id="id" min="1">
+      <div *ngIf="userForm.controls['id'].invalid && userForm.controls['id'].touched"> ⚠️ Le nom est requis. </div>
+    </div>
+    <div class="form-item">
+      <label for="firstname">Firstname :</label>
+      <input type="text" id="firstname" formControlName="firstname">
+      <div *ngIf="userForm.controls['firstname'].invalid && userForm.controls['firstname'].touched"> ⚠️ Le nom est requis. </div>
+    </div>
+    <div class="form-item">
+      <label for="name">Name :</label>
+      <input type="text" formControlName="name" id="name">
+      <div *ngIf="userForm.controls['name'].invalid && userForm.controls['name'].touched"> ⚠️ Le nom est requis. </div>
+    </div>
+    <div class="form-item">
+      <label for="team">Team :</label>
+      <select formControlName="team" id="team">
+        <option value="">Choisir une équipe</option>
+        <option *ngFor="let team of teams" [value]="team">{{team}}</option>
+      </select>
+      <div *ngIf="userForm.controls['team'].invalid && userForm.controls['team'].touched"> ⚠️ Le nom est requis. </div>
+    </div>
+    <div class="form-item">
+      <label for="isAdmin">World champion :</label>
+      <input type="checkbox" formControlName="isAdmin" id="isAdmin">
+      <div *ngIf="userForm.controls['isAdmin'].invalid && userForm.controls['isAdmin'].touched"> ⚠️ Le nom est requis. </div>
+    </div>
+    <div class="form-item btn-container">
+      <button class="submit-btn" type="submit" [disabled]="userForm.invalid">Valider</button>
+    </div>
+  </form>
+</div>
