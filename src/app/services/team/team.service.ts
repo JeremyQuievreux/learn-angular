@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Teams } from '../data/Teams';
+import { Teams } from '../../data/Teams';
 
 @Injectable({
   providedIn: 'root'

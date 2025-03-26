@@ -1,30 +1,30 @@
 import { Injectable } from '@angular/core';
-import { UserType } from '../types/userType';
-import { USERS_MOCK } from '../data/users';
+import { PilotType } from '../../types/pilotType';
+import { PILOTS_MOCK } from '../../data/pilots';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  private users: UserType[] = USERS_MOCK;
+  private users: PilotType[] = PILOTS_MOCK;
 
   // Récupérer tous les utilisateurs
-  getUsers(): UserType[] {
+  getUsers(): PilotType[] {
     return this.users;
   }
 
   // Récupérer un utilisateur par son ID
-  getUserById(id: number): UserType | undefined {
+  getUserById(id: number): PilotType | undefined {
     return this.users.find(user => user.id === id);
   }
 
   // Ajouter un nouvel utilisateur
-  addUser(user: UserType): void {
+  addUser(user: PilotType): void {
     this.users.push({ ...user }); // Auto-incrémentation ID
   }
 
   // Mettre à jour un utilisateur existant
-  updateUser(updatedUser: UserType): void {
+  updateUser(updatedUser: PilotType): void {
     const index = this.users.findIndex(user => user.id === updatedUser.id);
     if (index !== -1) {
       this.users[index] = updatedUser;

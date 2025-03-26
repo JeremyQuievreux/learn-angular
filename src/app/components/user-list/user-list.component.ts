@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserService } from '../services/user.service';
-import { UserType } from '../types/userType';
+import { UserService } from '../../services/user/user.service';
+import { PilotType } from '../../types/pilotType';
 
 @Component({
   selector: 'user-list',
@@ -9,7 +9,7 @@ import { UserType } from '../types/userType';
   styleUrls: ['./user-list.component.scss']
 })
 export class UserList implements OnInit {
-  users: UserType[] = [];
+  users: PilotType[] = [];
 
   constructor(private userService: UserService, private router: Router) { }
 

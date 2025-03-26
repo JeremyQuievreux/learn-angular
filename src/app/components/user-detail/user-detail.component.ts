@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
-import {UserService} from "../services/user.service";
-import {UserType} from "../types/userType";
+import {UserService} from "../../services/user/user.service";
+import {PilotType} from "../../types/pilotType";
 
 @Component({
   selector: 'user-detail',
@@ -9,7 +9,7 @@ import {UserType} from "../types/userType";
   styleUrls: ['./user-detail.component.scss']
 })
 export class UserDetail implements OnInit{
-  user: UserType | undefined;
+  user: PilotType | undefined;
   userId: number | null = null;
 
   constructor(

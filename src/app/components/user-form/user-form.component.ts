@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserService } from '../services/user.service';
-import { TeamService } from '../services/team.service';
-import { UserType } from '../types/userType';
+import { UserService } from '../../services/user/user.service';
+import { TeamService } from '../../services/team/team.service';
+import { PilotType } from '../../types/pilotType';
 
 @Component({
   selector: 'user-form',
@@ -56,7 +56,7 @@ export class UserForm implements OnInit {
       return; // Empêche la soumission si le formulaire est invalide
     }
 
-    const userData: UserType = { ...this.userForm.value };
+    const userData: PilotType = { ...this.userForm.value };
 
     if (this.isCreateMode) {
       console.log("passe la");

@@ -1,5 +1,5 @@
 import { Component, Input, EventEmitter, Output } from '@angular/core';
-import {UserType} from "../types/userType";
+import {PilotType} from "../../types/pilotType";
 
 @Component({
   selector: 'table-row',
@@ -8,7 +8,7 @@ import {UserType} from "../types/userType";
 })
 export class TableRowComponent {
 
-  @Input() user!: UserType;
+  @Input() user!: PilotType;
   @Output() edit = new EventEmitter<number>();
 
   goToUserDetail() {

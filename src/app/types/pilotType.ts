@@ -1,7 +1,7 @@
-export interface UserType {
+export interface PilotType {
   id: number;
   name: string;
   firstname: string;
   team: string;
-  isAdmin: boolean;
+  isChampion: boolean;
 }

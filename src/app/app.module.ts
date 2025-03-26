@@ -4,14 +4,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomePage } from './home-page/home-page.component';
-import { Navbar } from './navbar/navbar.component';
-import { UserList } from './user-list/user-list.component';
-import { UserDetail } from './user-detail/user-detail.component';
-import { UserForm } from './user-form/user-form.component';
+import { HomePage } from './components/home-page/home-page.component';
+import { Navbar } from './components/navbar/navbar.component';
+import { UserList } from './components/user-list/user-list.component';
+import { UserDetail } from './components/user-detail/user-detail.component';
+import { UserForm } from './components/user-form/user-form.component';
 
 import { UserRoutingModule } from './user-routing.module';
-import { TableRowComponent } from './table-row/table-row.component';
+import { TableRowComponent } from './components/table-row/table-row.component';
 import {CheckIconPipe} from "./pipes/CheckIconPipe";
 
 @NgModule({
