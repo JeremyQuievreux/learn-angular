@@ -20,7 +20,7 @@ export class UserService {
   // Ajouter un nouvel utilisateur
   addPilot(pilot: PilotType): Observable<void> {
     this.pilots.push({ ...pilot, id: this.pilots.length + 1 });
-    // Renvoie un Observable vide pour simuler une requête HTTP
+    // Renvoie un Observable vide pour simuler une reponse requête HTTP
     return of();
   }
 
@@ -30,12 +30,15 @@ export class UserService {
     if (index !== -1) {
       this.pilots[index] = updatedPilot;
     }
+    // Renvoie un Observable vide pour simuler une reponse requête HTTP
     return of();
   }
 
   // Supprimer un utilisateur par son ID
   deletePilot(id: number): Observable<void> {
     this.pilots = this.pilots.filter(pilot => pilot.id !== id);
+    // Renvoie un Observable undefined pour simuler une reponse requête HTTP ,
+    // undefined, pour declencher le subscribe, car le tableau n'est pas modifié.
     return of(undefined);
   }
 }

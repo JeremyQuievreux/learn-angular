@@ -1,0 +1,10 @@
+- *ngSwitch
+- [ngClass]
+- [ngStyle]
+- directive perso
+- BehaviorSubject
+- catchError / retry
+
+
+- Guard (CanActivate, CanDeactivate)
+
