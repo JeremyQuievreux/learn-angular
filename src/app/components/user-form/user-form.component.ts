@@ -11,11 +11,13 @@ import { PilotType } from '../../types/pilotType';
   styleUrls: ['./user-form.component.scss']
 })
 export class UserForm implements OnInit {
+  // init des variables
   teams: String[] = [];
   userForm!: FormGroup;
-  userId: number | null = null; // Gérer si l'utilisateur est en édition ou en création
+  userId: number | null = null;
   isCreateMode: boolean = false;
   user: PilotType | undefined;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -49,31 +51,29 @@ export class UserForm implements OnInit {
         this.userForm.patchValue(this.user);
       }
     }
-
     this.teams = this.teamService.getAllTeams();
   }
 
   onSubmit(): void {
-    console.log(this.userForm);
-
     if (this.userForm.invalid) {
-      return; // Empêche la soumission si le formulaire est invalide
+      // Empêche la soumission si le formulaire est invalide
+      return;
     }
-
+    // création dto
     const pilotData: PilotType = { ...this.userForm.value };
 
     if (this.isCreateMode) {
       this.userService.addPilot(pilotData).subscribe(() => {
-        console.log("Utilisateur ajouté !");
-        this.router.navigate(['/pilots']); // Redirection après ajout
+        // Redirection après ajout
+        this.router.navigate(['/pilots']);
       });
     } else {
       this.userService.updatePilot(pilotData).subscribe(() => {
-        console.log("Utilisateur mis à jour !");
-        this.router.navigate(['/pilots']); // Redirection après mise à jour
+        // Redirection après mise à jour
+        this.router.navigate(['/pilots']);
       });
     }
-
-    this.router.navigate(['/pilots']); // Rediriger vers la liste
+    // Rediriger vers la liste
+    this.router.navigate(['/pilots']);
   }
 }

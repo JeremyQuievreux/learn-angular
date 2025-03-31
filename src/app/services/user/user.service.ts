@@ -29,17 +29,13 @@ export class UserService {
     const index = this.pilots.findIndex(pilot => pilot.id === updatedPilot.id);
     if (index !== -1) {
       this.pilots[index] = updatedPilot;
-      console.log('index ok');
-
     }
-    console.log(this.pilots);
-
     return of();
   }
 
   // Supprimer un utilisateur par son ID
   deletePilot(id: number): Observable<void> {
     this.pilots = this.pilots.filter(pilot => pilot.id !== id);
-    return of();
+    return of(undefined);
   }
 }

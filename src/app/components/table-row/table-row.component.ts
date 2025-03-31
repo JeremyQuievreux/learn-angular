@@ -1,4 +1,5 @@
 import { Component, Input, EventEmitter, Output } from '@angular/core';
+//import TYPE
 import {PilotType} from "../../types/pilotType";
 
 @Component({
@@ -7,8 +8,9 @@ import {PilotType} from "../../types/pilotType";
   styleUrls: ['./table-row.component.scss']
 })
 export class TableRowComponent {
-
+  // props parent -> child
   @Input() pilot!: PilotType;
+  // event child -> parent (here event emit)
   @Output() edit = new EventEmitter<number>();
 
   goToUserDetail() {

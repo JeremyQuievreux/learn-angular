@@ -15,6 +15,9 @@ import { UserRoutingModule } from './user-routing.module';
 import { TableRowComponent } from './components/table-row/table-row.component';
 import { CheckIconPipe } from "./pipes/CheckIconPipe";
 import { InterceptorPageComponent } from './components/interceptor-page/interceptor-page.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './interceptor/auth.interceptor';
+import { CapitalizedInterceptor } from './interceptor/capitalized.interceptor';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,11 @@ import { InterceptorPageComponent } from './components/interceptor-page/intercep
     UserRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    //injection des intercepteur
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: CapitalizedInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

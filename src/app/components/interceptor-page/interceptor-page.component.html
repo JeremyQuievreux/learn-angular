@@ -1,1 +1,10 @@
-<p>interceptor-page works!</p>
+<div class="inter-page-container">
+    <h1>Intercep Users List</h1>
+    <ul>
+        <li *ngFor="let user of users">{{ user.name }}</li>
+    </ul>
+    <p>I use a auth interceptor, to verify : F12 -> reseau -> click on Get request -> See : Authorization : Bearer mon-token-de-test</p>
+    <p>And i create/use an specific interceptor for placeholder URL, who capitalized letter of response</p>
+    <p>See console to see changes</p>
+</div>
+

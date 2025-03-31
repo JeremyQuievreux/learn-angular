@@ -24,7 +24,7 @@ export class UserDetail implements OnInit {
     private router: Router
   ) { }
 
-  //Set apres l'init de la variable (user)
+  //Set de la variable pilot apres un subscribe et l'init
   ngOnInit(): void {
     const idParam = this.route.snapshot.paramMap.get('id');
     this.pilotId = idParam ? Number(idParam) : null;
@@ -35,11 +35,15 @@ export class UserDetail implements OnInit {
       });
     }
   }
+
   onEditClick(id: number): void {
+    //redirection
     this.router.navigate(['/pilot/edit', id]);
   }
   onDeleteClick(id: number) {
+    // delete pilot and subcribe, this one return an empty {}
     this.userService.deletePilot(id).subscribe(() => {
+      //redirection
       this.router.navigate(['/pilots']);
     })
   }

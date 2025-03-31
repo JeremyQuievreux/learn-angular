@@ -1,0 +1,15 @@
+@import "../../../styles";
+
+.inter-page-container {
+  min-height: calc(100vh - $navbar-height);
+  color: $text-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h1 {
+    margin: 10px;
+  }
+  ul {
+    margin: 10px;
+  }
+}

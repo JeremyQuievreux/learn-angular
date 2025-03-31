@@ -9,16 +9,17 @@ import { PilotType } from '../../types/pilotType';
   styleUrls: ['./user-list.component.scss']
 })
 export class UserList implements OnInit {
+  //init des variables
   pilots: PilotType[] = [];
 
   constructor(private userService: UserService, private router: Router) { }
 
   onEditClick(id: number) {
-    console.log('Edit button clicked');
-    console.log(id);
+    //redirection
     this.router.navigate(['/pilot/edit', id]);
   }
   onDeleteClick(id: number) {
+    // delete pilot and subscribe, after receive empty {} and then subscribe to get allPilots
     this.userService.deletePilot(id).subscribe(() => {
       this.userService.getPilots().subscribe(data => {
         this.pilots = data;
@@ -26,13 +27,13 @@ export class UserList implements OnInit {
     });
   }
   goToUserDetail = (id: number) => {
-    console.log('Go to user detail');
+    //redirection
     this.router.navigate(['/pilot/detail', id]);
   }
 
   ngOnInit(): void {
+    // set pilots after subscribes response
     this.userService.getPilots().subscribe(data => {
-      console.log('Données récupérées depuis l\'API:', data);
       this.pilots = data;
     });
   }
