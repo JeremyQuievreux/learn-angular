@@ -35,7 +35,7 @@ export class UserForm implements OnInit {
       name: ['', Validators.required],
       firstname: ['', Validators.required],
       team: ['', Validators.required],
-      isAdmin: [false]
+      isChampion: [false]
     });
 
     // Si un ID est présent, charger les données de l'utilisateur
