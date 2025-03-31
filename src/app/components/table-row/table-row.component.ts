@@ -8,10 +8,10 @@ import {PilotType} from "../../types/pilotType";
 })
 export class TableRowComponent {
 
-  @Input() user!: PilotType;
+  @Input() pilot!: PilotType;
   @Output() edit = new EventEmitter<number>();
 
   goToUserDetail() {
-    this.edit.emit(this.user.id);
+    this.edit.emit(this.pilot.id);
   }
 }

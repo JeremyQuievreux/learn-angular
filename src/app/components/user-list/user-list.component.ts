@@ -9,25 +9,31 @@ import { PilotType } from '../../types/pilotType';
   styleUrls: ['./user-list.component.scss']
 })
 export class UserList implements OnInit {
-  users: PilotType[] = [];
+  pilots: PilotType[] = [];
 
   constructor(private userService: UserService, private router: Router) { }
 
   onEditClick(id: number) {
     console.log('Edit button clicked');
     console.log(id);
-    this.router.navigate(['/user/edit', id]);
+    this.router.navigate(['/pilot/edit', id]);
   }
   onDeleteClick(id: number) {
-    this.userService.deleteUser(id);
-    this.users = this.userService.getUsers();
+    this.userService.deletePilot(id).subscribe(() => {
+      this.userService.getPilots().subscribe(data => {
+        this.pilots = data;
+      });
+    });
   }
-  goToUserDetail = (id: number)=> {
+  goToUserDetail = (id: number) => {
     console.log('Go to user detail');
-    this.router.navigate(['/user/detail', id]);
+    this.router.navigate(['/pilot/detail', id]);
   }
 
   ngOnInit(): void {
-    this.users = this.userService.getUsers();
+    this.userService.getPilots().subscribe(data => {
+      console.log('Données récupérées depuis l\'API:', data);
+      this.pilots = data;
+    });
   }
 }

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,7 +13,7 @@ import { UserForm } from './components/user-form/user-form.component';
 
 import { UserRoutingModule } from './user-routing.module';
 import { TableRowComponent } from './components/table-row/table-row.component';
-import {CheckIconPipe} from "./pipes/CheckIconPipe";
+import { CheckIconPipe } from "./pipes/CheckIconPipe";
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {CheckIconPipe} from "./pipes/CheckIconPipe";
     BrowserModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    UserRoutingModule
+    UserRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

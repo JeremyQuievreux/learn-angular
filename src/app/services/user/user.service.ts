@@ -1,38 +1,45 @@
 import { Injectable } from '@angular/core';
 import { PilotType } from '../../types/pilotType';
 import { PILOTS_MOCK } from '../../data/pilots';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  private users: PilotType[] = PILOTS_MOCK;
+  private pilots: PilotType[] = PILOTS_MOCK;
 
-  // Récupérer tous les utilisateurs
-  getUsers(): PilotType[] {
-    return this.users;
+  getPilots(): Observable<PilotType[]> {
+    return of(this.pilots);
   }
-
   // Récupérer un utilisateur par son ID
-  getUserById(id: number): PilotType | undefined {
-    return this.users.find(user => user.id === id);
+  getPilotById(id: number): Observable<PilotType | undefined> {
+    return of(this.pilots.find(pilot => pilot.id === id));
   }
 
   // Ajouter un nouvel utilisateur
-  addUser(user: PilotType): void {
-    this.users.push({ ...user }); // Auto-incrémentation ID
+  addPilot(pilot: PilotType): Observable<void> {
+    this.pilots.push({ ...pilot, id: this.pilots.length + 1 });
+    // Renvoie un Observable vide pour simuler une requête HTTP
+    return of();
   }
 
   // Mettre à jour un utilisateur existant
-  updateUser(updatedUser: PilotType): void {
-    const index = this.users.findIndex(user => user.id === updatedUser.id);
+  updatePilot(updatedPilot: PilotType): Observable<void> {
+    const index = this.pilots.findIndex(pilot => pilot.id === updatedPilot.id);
     if (index !== -1) {
-      this.users[index] = updatedUser;
+      this.pilots[index] = updatedPilot;
+      console.log('index ok');
+
     }
+    console.log(this.pilots);
+
+    return of();
   }
 
   // Supprimer un utilisateur par son ID
-  deleteUser(id: number): void {
-    this.users = this.users.filter(user => user.id !== id);
+  deletePilot(id: number): Observable<void> {
+    this.pilots = this.pilots.filter(pilot => pilot.id !== id);
+    return of();
   }
 }

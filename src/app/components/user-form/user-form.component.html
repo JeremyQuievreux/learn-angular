@@ -3,8 +3,8 @@
   <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
     <div class="form-item">
       <label for="id">Pilot number :</label>
-      <input type="number" formControlName="id" id="id" min="1">
-      <div *ngIf="userForm.controls['id'].invalid && userForm.controls['id'].touched"> ⚠️ Le nom est requis. </div>
+      <input type="number" formControlName="pilotNumber" id="pilotNumber" min="1">
+      <div *ngIf="userForm.controls['pilotNumber'].invalid && userForm.controls['pilotNumber'].touched"> ⚠️ Le nom est requis. </div>
     </div>
     <div class="form-item">
       <label for="firstname">Firstname :</label>

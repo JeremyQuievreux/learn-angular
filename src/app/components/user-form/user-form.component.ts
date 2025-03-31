@@ -15,6 +15,7 @@ export class UserForm implements OnInit {
   userForm!: FormGroup;
   userId: number | null = null; // Gérer si l'utilisateur est en édition ou en création
   isCreateMode: boolean = false;
+  user: PilotType | undefined;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -31,7 +32,8 @@ export class UserForm implements OnInit {
 
     // Initialiser le formulaire
     this.userForm = this.fb.group({
-      id: [null, Validators.required],
+      id: [null],
+      pilotNumber: [null, Validators.required],
       name: ['', Validators.required],
       firstname: ['', Validators.required],
       team: ['', Validators.required],
@@ -40,9 +42,11 @@ export class UserForm implements OnInit {
 
     // Si un ID est présent, charger les données de l'utilisateur
     if (this.userId) {
-      const user = this.userService.getUserById(this.userId);
-      if (user) {
-        this.userForm.patchValue(user);
+      this.userService.getPilotById(this.userId).subscribe(user => {
+        this.user = user;
+      });
+      if (this.user) {
+        this.userForm.patchValue(this.user);
       }
     }
 
@@ -56,16 +60,20 @@ export class UserForm implements OnInit {
       return; // Empêche la soumission si le formulaire est invalide
     }
 
-    const userData: PilotType = { ...this.userForm.value };
+    const pilotData: PilotType = { ...this.userForm.value };
 
     if (this.isCreateMode) {
-      console.log("passe la");
-
-      this.userService.addUser(userData);
+      this.userService.addPilot(pilotData).subscribe(() => {
+        console.log("Utilisateur ajouté !");
+        this.router.navigate(['/pilots']); // Redirection après ajout
+      });
     } else {
-      this.userService.updateUser(userData);
+      this.userService.updatePilot(pilotData).subscribe(() => {
+        console.log("Utilisateur mis à jour !");
+        this.router.navigate(['/pilots']); // Redirection après mise à jour
+      });
     }
 
-    this.router.navigate(['/users']); // Rediriger vers la liste
+    this.router.navigate(['/pilots']); // Rediriger vers la liste
   }
 }
