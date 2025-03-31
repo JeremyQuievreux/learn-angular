@@ -14,6 +14,7 @@ import { UserForm } from './components/user-form/user-form.component';
 import { UserRoutingModule } from './user-routing.module';
 import { TableRowComponent } from './components/table-row/table-row.component';
 import { CheckIconPipe } from "./pipes/CheckIconPipe";
+import { InterceptorPageComponent } from './components/interceptor-page/interceptor-page.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { CheckIconPipe } from "./pipes/CheckIconPipe";
     UserDetail,
     UserForm,
     TableRowComponent,
-    CheckIconPipe
+    CheckIconPipe,
+    InterceptorPageComponent
   ],
   imports: [
     BrowserModule,
